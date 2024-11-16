@@ -1,18 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
     <modelVersion>4.0.0</modelVersion>
-    
-    <groupId>com.example</groupId>
-    <artifactId>webapp-example</artifactId>
+
+    <groupId>com.abc</groupId>
+    <artifactId>webproj</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
-    
-    <repositories>
-        <!-- Repository for adikarthikgupta -->
+
+    <distributionManagement>
         <repository>
-            <id>adikarthikgupta</id>
+            <id>adikarthikgupta</id> <!-- This should match the ID in settings.xml -->
             <url>https://pkgs.dev.azure.com/adikarthikgupta/_packaging/adikarthikgupta/maven/v1</url>
             <releases>
                 <enabled>true</enabled>
@@ -21,31 +19,23 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-    </repositories>
-    
-    <distributionManagement>
-        <repository>
-            <id>adikarthikgupta</id>
-            <url>https://pkgs.dev.azure.com/adikarthikgupta/_packaging/adikarthikgupta/maven/v1</url>
-        </repository>
     </distributionManagement>
+
+    <dependencies>
+        <!-- Your project dependencies -->
+    </dependencies>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-deploy-plugin</artifactId>
-                <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>deploy</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
 
